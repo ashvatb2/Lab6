@@ -61,6 +61,15 @@ public class WaterPokemon extends Pokemon {
      * Implement this.
      */
     public boolean attack(final Pokemon opponent) {
+        if (!super.attack(opponent)) {
+            if (opponent.pokeType != PokemonType.WATER) {
+                if (specProb > Math.random()) {
+                    System.out.println("Speciality attack used");
+                    opponent.setHitPoints(0);
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
